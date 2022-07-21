@@ -1,0 +1,539 @@
+.main-content-wrapper {
+	display: flex;  
+	flex-flow: row wrap;
+	min-height: 100vh;
+  }
+
+  .main-content-wrapper > * {
+	padding: 10px;
+	flex: 1 100%;
+  }
+  
+  .main {
+	text-align: left;
+	padding: 20px;
+	background-color: #EDEEF3;
+  }
+  
+  .aside {
+	background: #1e2646;
+	min-height: 100vh;
+	flex-basis: 130px;
+	padding: 20px;
+  }
+
+  .sidenav-wrap ul li{
+    margin-bottom: 20px;
+  }
+
+.sidenav-wrap ul li a{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+@media all and (min-width: 600px) {
+	.aside { 
+		flex: 0;
+		flex-basis: 130px; 
+	}
+  }
+  @media all and (min-width: 800px) {
+	.main    { flex: 3 0px; }
+	.aside { order: 1; } 
+	.main    { order: 2; }
+	.footer  { order: 3; }
+  }
+
+  /*landing page css start*/
+
+  .banner-section{
+	background-color: #19213E;
+    background-image: url(/src/img/banner-light-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+  }
+
+  .banner-section .content-wrap{
+	height: 400px;
+	width: 500px;
+	position: relative;
+	left: 2.5%;
+  }
+
+  .homepage h1,
+  .homepage h2,
+  .homepage h3{
+	font-family: 'Cairo', sans-serif;
+  }
+
+  .banner-section .content-wrap h1{
+	color: #FFFFFF;
+	font-size: 35px;
+	line-height: 40px;
+    margin-bottom: 25px;
+  }
+
+  .banner-section .content-wrap p{
+	color:  rgba(255, 255, 255, 0.6);
+	font-size: 20px;
+	line-height: 30px;
+    margin-bottom: 25px;
+  }
+
+  .btn-wrap{
+	display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+  }
+
+  .btn-block{
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    gap: 10px;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(130.89deg, #335FFC 6.22%, #92C4FF 74.59%, #86FAFF 122.39%);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-text-wrap{
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	width: 98%;
+    height: 95%;
+    border-radius: 5px;
+  }
+
+  .btn-outline{
+	background: #19213E;
+  }
+
+  .btn-text-wrap span{
+	font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .coloured-bg{
+	background-color: #F5F9FC;
+  }
+
+  .white-bg{
+	background-color: #FFFFFF;
+  }
+
+  .steps-section{
+	padding: 100px 0;
+  }
+
+.subtitle{
+color: #0581E5;
+text-align: center;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+margin-bottom: 25px;
+  }
+
+  .steps-section h2{
+	font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 25px;
+	text-align: center;
+	font-weight: 600;
+  }
+
+  .column-container{
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    gap: 10px;
+  }
+
+  .each-column{
+	text-align: center;
+	width: 340px;
+  }
+
+  .steps-section .each-column{
+	background-color: #FFFFFF;
+	padding: 35px 0;
+	border-radius: 5px;
+	min-height: 165px;
+  }
+
+  .each-column h4{
+	font-family: 'Cairo', sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
+  }
+
+  .each-column .img-wrap img{
+	height: 50px;
+	margin-bottom: 15px;
+  }
+
+  .about-section{
+	padding: 100px 0;
+  }
+.about-section .container{
+	width: 65%;
+    margin: 0 auto;
+}
+
+.about-section .subtitle{
+	text-align: left;
+}
+  .two-column-container{
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    gap: 30px;
+  }
+
+  .two-column-container .each-block h2{
+	font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 25px;
+	text-align: left;
+	font-weight: 600;
+  }
+
+ p.subtext{
+	color: #727DA4;
+	line-height: 22px;
+    font-size: 14px;
+  }
+
+  .howitworks-section{
+	padding: 100px 0;
+  }
+  .howitworks-section .container{
+	width: 65%;
+    margin: 0 auto;
+}
+  .howitworks-section h2{
+	font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 25px;
+	text-align: center;
+	font-weight: 600;
+  }
+  .howitworks-section .column-container{
+	background: #0581E5;
+    box-shadow: 0px 0px 21px rgb(1 79 187 / 5%);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .howitworks-section h4{
+	color: #FFFFFF;
+  }
+  .howitworks-section .subtext{
+	color: #FFFFFF;
+  }
+
+  .getstarted-section{
+	padding: 100px 0;
+  }
+  .getstarted-section .container{
+	width: 65%;
+    margin: 0 auto;
+}
+
+.getstarted-section .content-wrap{
+	text-align: center;
+	background: #19213E;
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.getstarted-section .content-wrap h2{
+	font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 25px;
+	text-align: center;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+
+.getstarted-section .content-wrap .btn-wrap{
+	width: 200px;
+	margin: 25px auto 0;
+}
+.aboutblockchain-section{
+	padding: 100px 0;
+}
+.aboutblockchain-section .container{
+	width: 65%;
+    margin: 0 auto;
+}
+.aboutblockchain-section .subtitle{
+	text-align: left;
+}
+
+  /*landing page css end*/
+
+  /*dashboard main content section css start*/
+
+  .intro-heading-wrap{
+    margin-bottom: 25px;
+  }
+
+  .intro-heading-wrap h2{
+    font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 10px;
+	font-weight: 600;
+  }
+
+  .intro-heading-wrap h2.intro-line1{
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+  
+  .data-table-container{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    gap: 130px;
+    width: 800px;
+    padding-left: 25px;
+  }
+
+  .table-column h3{
+    font-family: 'Cairo', sans-serif;
+    font-size: 22px;
+    line-height: 26px;
+    margin: 10px 0 20px;
+    font-weight: 600;
+  }
+
+  .org-list-holder .org-list-wrap li{
+    padding: 15px 0;
+    border-bottom: 1px solid #E6E6E6; 
+  }
+
+  .org-list-holder .org-list-wrap li:last-child{
+    border-bottom: none;
+  }
+
+  .org-list-holder .org-list-wrap li.selected{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .empty-selection-info{
+    text-align: center;
+    font-weight: 600;
+    display: none;
+  }
+
+  .members-list-holder .members-list-wrap li{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1px;
+    gap: 10px;
+    margin: 0 0 20px;
+  }
+
+  .members-list-holder .members-list-wrap li .github-avtar img{
+    width: 30px;
+  }
+
+  .repos-list-holder .repos-list-wrap li{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1px;
+    gap: 10px;
+    margin: 0 0 20px;
+  }
+
+  .contract-details-container{
+    margin: 30px 0;
+  }
+
+  .contract-details-container h2{
+    font-family: 'Cairo', sans-serif;
+	font-size: 26px;
+	line-height: 32px;
+    margin-bottom: 20px;
+	font-weight: 600;
+  }
+
+  .contract-form-wrap{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px 20px 0;
+    gap: 60px;
+    width: 1000px;
+  }
+
+  .contract-form-columns .contract-field-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contract-form-columns .contract-field-wrap h4{
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    width: 160px;
+  }
+
+  .contract-form-columns .contract-field-wrap  .text-input-wrap input{
+    border: none;
+    border-bottom: 1px solid #9D9D9D;
+    outline: none;
+    border-radius: 0px;
+  }
+
+  .token-field{
+    display: flex;
+  }
+  .token-symbol-block{
+    border: 1px solid #9D9D9D;
+    background-color: #F0F0F0;
+    padding: 5px;
+    font-weight: 600;
+  }
+
+  .contract-form-columns .contract-field-wrap.set-address-wrap{
+    flex-direction: column;
+  }
+
+  .contract-form-columns .contract-field-wrap.set-address-wrap .text-input-wrap label{
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 15px;
+  }
+
+  .contract-form-columns .contract-field-wrap.set-address-wrap .text-input-wrap input{
+    width: 330px;
+  }
+
+  .create-contract-action-container{
+    background-color: #FFFFFF;
+    width: 1000px;
+    padding: 20px 20px 30px;
+  }
+
+  .create-contract-action-container .agree-tnc-wrap{
+    margin-bottom: 20px;
+  }
+
+  .create-contract-action-container .btn-block{
+    width: 300px;
+  }
+
+  /*contract card css start*/
+
+  .contract-card-container{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 20px;
+    gap: 20px;
+    width: 900px;
+  }
+
+  .contract-card-container .block-value{
+    width: 120px;
+  }
+  .contract-card-container .btn-block{
+    height: 25px;
+  }
+  .contract-card-container .btn-outline{
+    background-color: #FFFFFF;
+  }
+
+  .contract-card-container .btn-text-wrap span{
+    color: #335FFC;
+    font-size: 14px;
+  }
+
+  .contract-heading-bar-holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contract-github-info-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .block-data-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contract-members-list ul li{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contract-members-list ul li .github-avtar img{
+    width: 30px;
+  }
