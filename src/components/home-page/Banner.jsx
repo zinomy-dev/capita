@@ -25,8 +25,8 @@ export default class Banner extends Component {
         return <section className="homepage banner-section">
             <div className="container">
                 <div className="content-wrap">
-                    <h1>Create a partnership <br />contract on-chain for any <br />Git project, instantly</h1>
-                    <p>Protect your future intrest in any collaborative <br />project, open source or closed</p>
+                    <h1>Protect and share the <br/>rights to your GitHub <br/>Project, on-chain</h1>
+                    <p>Reward contributors, instantly. Secure your IP, <br/>forever, for free.</p>
                     <div className="btn-wrap">
                         <div className="btn-block">
                             <div className="btn-text-wrap">

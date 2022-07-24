@@ -53,11 +53,17 @@ body{
 	font-family: 'Mulish', sans-serif;
 	font-size: 16px;
 	font-weight: normal;
+	color: #19213E;
 }
 
 header{
 	background-color: #19213E;
 	/* background-color: #23193E; */
+}
+
+strong{
+	font-weight: 700;
+	color: #19213E;
 }
 
 .header-container{
@@ -83,14 +89,7 @@ gap: 260px;
 	flex-grow: 0;
 }
 .logo{
-	width: 83.6px;
-	height: 20px;
-
-	/* Inside auto layout */
-	
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+	width: 100px;
 }
 
 .nav-container{
@@ -194,6 +193,9 @@ gap: 260px;
 	margin-bottom: 25px;
 	margin-top: 35px;
 }
+.footer .logo-wrap img{
+	width: 150px;
+}
 .footer .links-wrap{
 	margin-bottom: 25px;
 }
@@ -204,6 +206,10 @@ align-items: center;
 justify-content: center;
 padding: 0px;
 gap: 10px;
+}
+
+.footer .links-wrap ul li{
+	margin: 0 15px;
 }
 
 .footer .links-wrap ul li a{

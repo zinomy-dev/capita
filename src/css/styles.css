@@ -66,6 +66,13 @@
 	font-family: 'Cairo', sans-serif;
   }
 
+  .section-heading-style{
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+
   .banner-section .content-wrap h1{
 	color: #FFFFFF;
 	font-size: 35px;
@@ -142,6 +149,7 @@ gap: 10px;
   }
 
 .subtitle{
+  display: none;
 color: #0581E5;
 text-align: center;
 text-transform: uppercase;
@@ -151,12 +159,7 @@ margin-bottom: 25px;
   }
 
   .steps-section h2{
-	font-family: 'Cairo', sans-serif;
-	font-size: 26px;
-	line-height: 32px;
-    margin-bottom: 25px;
-	text-align: center;
-	font-weight: 600;
+    text-align: center;
   }
 
   .column-container{
@@ -192,6 +195,14 @@ margin-bottom: 25px;
 	margin-bottom: 15px;
   }
 
+  .steps-section .coloured-column{
+    background: #0581E5;
+  }
+  .steps-section .coloured-column h4,
+  .steps-section .coloured-column p.subtext{
+    color: #FFFFFF;
+  }
+
   .about-section{
 	padding: 100px 0;
   }
@@ -213,12 +224,7 @@ margin-bottom: 25px;
   }
 
   .two-column-container .each-block h2{
-	font-family: 'Cairo', sans-serif;
-	font-size: 26px;
-	line-height: 32px;
-    margin-bottom: 25px;
-	text-align: left;
-	font-weight: 600;
+    text-align: left;
   }
 
  p.subtext{
@@ -226,6 +232,11 @@ margin-bottom: 25px;
 	line-height: 22px;
     font-size: 14px;
   }
+
+.about-section p.subtext,
+.aboutblockchain-section p.subtext{
+  margin-bottom: 40px;
+}
 
   .howitworks-section{
 	padding: 100px 0;
@@ -235,18 +246,15 @@ margin-bottom: 25px;
     margin: 0 auto;
 }
   .howitworks-section h2{
-	font-family: 'Cairo', sans-serif;
-	font-size: 26px;
-	line-height: 32px;
-    margin-bottom: 25px;
-	text-align: center;
-	font-weight: 600;
+    text-align: center;
   }
   .howitworks-section .column-container{
 	background: #0581E5;
     box-shadow: 0px 0px 21px rgb(1 79 187 / 5%);
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px 25px;
+    display: flex;
+    gap: 50px;
   }
   .howitworks-section h4{
 	color: #FFFFFF;
@@ -271,12 +279,7 @@ margin-bottom: 25px;
 }
 
 .getstarted-section .content-wrap h2{
-	font-family: 'Cairo', sans-serif;
-	font-size: 26px;
-	line-height: 32px;
-    margin-bottom: 25px;
 	text-align: center;
-	font-weight: 600;
 	color: #FFFFFF;
 }
 

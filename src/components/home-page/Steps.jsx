@@ -6,7 +6,7 @@ const Steps = () => {
     <div className="container">
         <div className="content-wrap">
             <p className="subtitle">easy start</p>
-            <h2>Set up your partnership contract <br/>in 3 easy steps</h2>
+            <h2 className='section-heading-style'>Simple, Free &amp; Felxible</h2>
             <div className="column-container">
                 <div className="each-column">
                     <div className="img-wrap">
@@ -15,7 +15,7 @@ const Steps = () => {
                     <h4>Simple</h4>
                     <p className="subtext">one minute setup with your <br/>GitHub credentials</p>
                 </div>
-                <div className="each-column">
+                <div className="each-column coloured-column">
                     <div className="img-wrap">
                         <img src={smileIcon} alt="Free"/>
                     </div>
