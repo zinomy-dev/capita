@@ -4,7 +4,7 @@ const GetStarted = (props) => {
     <div className="container" ref={props.myRef}>
         <div className="content-wrap">
             <p className="subtitle">SUBTITLE</p>
-            <h2>Get started now</h2>
+            <h2 className='section-heading-style'>Get started now</h2>
             <p className="subtext">Protect your future interest in any collaborative <br/>project, open source or closed</p>
             <div className="btn-wrap">
                 <span className="btn-block">Get Started</span>

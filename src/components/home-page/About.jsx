@@ -11,9 +11,9 @@ const Abount = () => {
                 </div>
                 <div className="each-block">
                     <p className="subtitle">SUBTITLE</p>
-                    <h2>About Capita</h2>
-                    <p className="subtext">Technology as we know today is powered by open source software and pieces of code developed by developers like you. However the profits and gains made by these softwares haven’t translated into proportionate rewards to the engineers and developers who actually contributed to it. We are on a mission to change this.
-                    <br/>Capita is a platform for tokenizing collaborative software projects, including open source, commercial, and hybrid Projects. Capita is built to integrate with Github and, in some respects, is a corollary technology: Github enables the management of inputs to a Project, while Capita enables the management of outputs from such Project.</p>
+                    <h2 className='section-heading-style'>Why Use <strong>Capita</strong></h2>
+                    <p className="subtext">Today’s technology stack is built upon open source software, created collaboratively by developers like you.  But, the engineers and developers who contribute to these vital projects receive little, if any, benefit, from the value they create.  We are on a mission to change this.</p>
+                    <p className="subtext"><strong>Capita</strong> enables developers to tokenize collaborative software projects, including open source, commercial, and hybrid projects.  Once a Project is on-chain, the ownership and provenance of the underlying code and associated intellectual property (IP) is forever associated with the author and selected contributors.  Importantly, any revenues or other benefits from licensing or use of the software flows directly to the token holders. </p>
                 </div>
             </div>
         </div>
