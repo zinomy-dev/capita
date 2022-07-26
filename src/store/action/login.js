@@ -16,7 +16,7 @@ export const loggedIn = (payload) => {
 export const isLoggedIn = () => {
     return async dispatch => {
         const successAPI = new APIHandler({
-            url:"http://localhost:5000/auth/login/success",
+            url:"http://54.165.74.239:8080/auth/login/success",
             method: "GET",
             headers: {
                 Accept: "application/json",

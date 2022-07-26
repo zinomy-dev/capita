@@ -2,7 +2,7 @@ import APIHandler from "../../service/API_Handler";
 export const fetchOrgData = () => {
     return async dispatch => {
         const successAPI = new APIHandler({
-            url: "http://localhost:5000/auth/github/orgs",
+            url: "http://54.165.74.239:8080/auth/github/orgs",
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -26,7 +26,7 @@ export const loadOrgData = (payload) => {
 export const fetchMembers = (organizationName) => {
     return async dispatch => {
         const successAPI = new APIHandler({
-            url: `http://localhost:5000/auth/github/orgs/${organizationName}/members`,
+            url: `http://54.165.74.239:8080/auth/github/orgs/${organizationName}/members`,
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -54,7 +54,7 @@ export const loadMembersData = (payload) => {
 export const fetchRepos = (organizationName, Members) => {
     return async dispatch => {
         const successAPI = new APIHandler({
-            url: `http://localhost:5000/auth/github/users/${organizationName}/repos`,
+            url: `http://54.165.74.239:8080/auth/github/users/${organizationName}/repos`,
             method: "GET",
             headers: {
                 Accept: "application/json",

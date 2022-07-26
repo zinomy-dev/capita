@@ -19,7 +19,7 @@ export default class Banner extends Component {
         });
     }
     github() {
-        window.open("http://localhost:5000/auth/github", "_self");
+        window.open("http://54.165.74.239:8080/auth/github", "_self");
     };
     render() {
         return <section className="homepage banner-section">

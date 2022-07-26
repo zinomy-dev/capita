@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from '../img/capita-logo.png'
 const Navbar = ({ user }) => {
   const logout = () => {
-    window.open("http://localhost:5000/auth/logout", "_self");
+    window.open("http://54.165.74.239:8080/auth/logout", "_self");
   };
   return (
     <header>
