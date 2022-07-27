@@ -15,7 +15,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://ec2-54-165-74-239.compute-1.amazonaws.com",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
@@ -24,5 +24,5 @@ app.use(
 app.use("/auth", authRoute);
 
 app.listen("5000", () => {
-  console.log("Server is running!");
+  console.log("Server is running!  3");
 });

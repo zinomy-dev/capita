@@ -1,4 +1,5 @@
 import APIHandler from "../../service/API_Handler";
+import {API_URL} from "../../constant";
 
 export const logIn = ()=> {
     return {type: "logIn",
@@ -16,7 +17,7 @@ export const loggedIn = (payload) => {
 export const isLoggedIn = () => {
     return async dispatch => {
         const successAPI = new APIHandler({
-            url:"http://54.165.74.239:8080/auth/login/success",
+            url:`${API_URL}/auth/login/success`,
             method: "GET",
             headers: {
                 Accept: "application/json",

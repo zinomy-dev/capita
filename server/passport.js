@@ -7,7 +7,7 @@ const GOOGLE_CLIENT_ID =
   "your id";
 const GOOGLE_CLIENT_SECRET = "your id";
 
-const GITHUB_CLIENT_ID = "76c012f1c56f6ba5c356";
+const GITHUB_CLIENT_ID = "9fada474629ef94b09b7";
 const GITHUB_CLIENT_SECRET = "088bcac35dc130da43aae3b285d384e3f367c250";
 
 const FACEBOOK_APP_ID = "your id";
@@ -39,6 +39,7 @@ passport.use(
         writable: false
       });
       profile['accessToken'] = accessToken;
+      console.log(accessToken);
       done(null, profile);
     }
   )

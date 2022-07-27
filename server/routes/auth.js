@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const {Octokit} = require('octokit');
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = "http://ec2-54-165-74-239.compute-1.amazonaws.com/";
 
 router.get("/login/success", (req, res) => {
   if (req.user) {

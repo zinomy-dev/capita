@@ -1,18 +1,19 @@
 import Google from "../img/google.png";
 import Facebook from "../img/facebook.png";
 import Github from "../img/github.png";
+import {API_URL} from "../constant";
 
 const Login = () => {
   const google = () => {
-    window.open("http://54.165.74.239:8080/auth/google", "_self");
+    window.open(`${API_URL}/auth/google`, "_self");
   };
 
   const github = () => {
-    window.open("http://54.165.74.239:8080/auth/github", "_self");
+    window.open(`${API_URL}/auth/github`, "_self");
   };
 
   const facebook = () => {
-    window.open("http://54.165.74.239:8080/auth/facebook", "_self");
+    window.open(`${API_URL}/auth/facebook`, "_self");
   };
 
   return (

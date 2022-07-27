@@ -1,4 +1,6 @@
 import { Component } from "react";
+import {API_URL} from "../../constant";
+
 export default class Banner extends Component {
     constructor(props) {
         super();
@@ -19,7 +21,7 @@ export default class Banner extends Component {
         });
     }
     github() {
-        window.open("http://54.165.74.239:8080/auth/github", "_self");
+        window.open(`${API_URL}/auth/github`, "_self");
     };
     render() {
         return <section className="homepage banner-section">
