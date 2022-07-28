@@ -21,6 +21,7 @@ export default class Banner extends Component {
         });
     }
     github() {
+        console.log(API_URL)
         window.open(`${API_URL}/auth/github`, "_self");
     };
     render() {

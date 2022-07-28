@@ -1,10 +1,13 @@
-const cookieSession = require("cookie-session");
-const express = require("express");
-const cors = require("cors");
-const passportSetup = require("./passport");
-const passport = require("passport");
-const authRoute = require("./routes/auth");
+import cookieSession from "cookie-session";
+import express  from "express";
+import cors from "cors";
+import './passport.js';
+import passport from "passport";
+import authRoute from "./routes/auth.js";
 const app = express();
+
+// constant imports
+import {PORT, CLIENT_URL} from './constant/env.config.js'
 
 app.use(
   cookieSession({ name: "session", keys: ["capita"], maxAge: 24 * 60 * 60 * 100 })
@@ -15,7 +18,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://ec2-54-165-74-239.compute-1.amazonaws.com",
+    origin: CLIENT_URL,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
@@ -23,6 +26,6 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.listen("5000", () => {
-  console.log("Server is running!  3");
+app.listen(PORT, function (prt) {
+  console.log(`Server is running ${PORT}`);
 });

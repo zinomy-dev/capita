@@ -1,14 +1,13 @@
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GithubStrategy = require("passport-github2").Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
-const passport = require("passport");
+import  { Strategy as GoogleStrategy} from "passport-google-oauth20";
+import { Strategy as GithubStrategy } from "passport-github2";
+import { Strategy as FacebookStrategy }  from "passport-facebook";
+import passport from "passport";
 
 const GOOGLE_CLIENT_ID =
   "your id";
 const GOOGLE_CLIENT_SECRET = "your id";
 
-const GITHUB_CLIENT_ID = "9fada474629ef94b09b7";
-const GITHUB_CLIENT_SECRET = "088bcac35dc130da43aae3b285d384e3f367c250";
+import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from './constant/env.config.js'
 
 const FACEBOOK_APP_ID = "your id";
 const FACEBOOK_APP_SECRET = "your id";
