@@ -48,7 +48,7 @@ router.get(
 );
 
 router.get("/facebook", passport.authenticate("facebook", {scope: ["profile"]}));
-
+console.log(CLIENT_URL)
 router.get(
     "/facebook/callback",
     passport.authenticate("facebook", {
