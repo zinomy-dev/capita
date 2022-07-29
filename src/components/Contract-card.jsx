@@ -7,8 +7,7 @@ class ContractCard extends Component {
             organizationName,
             repoName
         } = this.props;
-        const members = membersList ? [...membersList] : []; 
-        console.log(members)
+        const members = membersList ? [...membersList] : [];
         return <div className="contract-card-container">
         <div className="contract-details-wrap">
             <div className="contract-heading-bar-holder">

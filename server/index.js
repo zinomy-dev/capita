@@ -4,10 +4,10 @@ import cors from "cors";
 import './passport.js';
 import passport from "passport";
 import authRoute from "./routes/auth.js";
-const app = express();
 
 // constant imports
 import {PORT, CLIENT_URL} from './constant/env.config.js'
+const app = express();
 
 app.use(
   cookieSession({ name: "session", keys: ["capita"], maxAge: 24 * 60 * 60 * 100 })
@@ -15,7 +15,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+console.log(CLIENT_URL)
 app.use(
   cors({
     origin: CLIENT_URL,
@@ -26,6 +26,6 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.listen(PORT, function (prt) {
+app.listen(PORT, function () {
   console.log(`Server is running ${PORT}`);
 });

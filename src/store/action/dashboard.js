@@ -1,6 +1,8 @@
 import APIHandler from "../../service/API_Handler";
+import Ethereum from "../../controller/Ethereum";
 import {API_URL} from "../../constant";
-
+import CONSTANTS from '../constants/actions.js';
+const dashboard = CONSTANTS.dashboard;
 export const fetchOrgData = () => {
     return async dispatch => {
         const successAPI = new APIHandler({
@@ -84,5 +86,32 @@ export const setRepoName = (repoName) => {
     return {
         type: "setRepoName",
         repoName: repoName
+    }
+}
+
+export const connectToWallet = () => {
+
+
+    return async dispatch => {
+        if (typeof window.ethereum === 'undefined') {
+            console.log(typeof window.ethereum === 'undefined')
+            dispatch( {
+                type: dashboard.ethereumNotAvail,
+                status: true
+            });
+        }else {
+            const selectedAddress = await Ethereum.connect();
+            dispatch(loadEthereumAddress({
+                data: selectedAddress
+            }))
+        }
+
+    }
+
+}
+export const loadEthereumAddress = (payload) => {
+    return {
+        type: dashboard.ethereumAddress,
+        ethereumAddress: payload.data
     }
 }

@@ -9,7 +9,9 @@ const actionsConstant = {
         loadOrgData: 'load_org_data',
         loadMembersData: 'loadMembersData',
         loadReposData: 'loadReposData',
-        setRepoName: 'setRepoName'
+        setRepoName: 'setRepoName',
+        ethereumNotAvail: 'ethereumNotAvail',
+        ethereumAddress: 'ethereumAddress'
     }
 };
 

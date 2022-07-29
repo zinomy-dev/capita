@@ -23,6 +23,12 @@ const reducer = (state = defaultState, action) => {
         case dashboard.setRepoName:
             newState.repoName = action.repoName;
             break;
+        case dashboard.ethereumNotAvail:
+            newState.ethereumNotAvail = action.status;
+            break;
+        case dashboard.ethereumAddress:
+            newState.ethereumAddress = action.ethereumAddress;
+            break;
     }
     return newState;
 }
