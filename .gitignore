@@ -22,3 +22,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .firebase
+.idea/deployment.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLinters/eslint.xml
+.idea/modules.xml
+.idea/react-app.iml
+.idea/sshConfigs.xml
+.idea/vcs.xml
+.idea/webServers.xml
+.idea/workspace.xml
