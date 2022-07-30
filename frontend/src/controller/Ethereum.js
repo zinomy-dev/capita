@@ -3,6 +3,7 @@ import contractAddress from "../constant/contracts/contract-address.json";
 import TokenArtifact from "../constant/contracts/Token.json";
 import CapitaArtifact from "../constant/contracts/Capita.json";
 import {store} from '../store/index'
+console.log(store)
 class Ethereum {
     // to use when deploying to other networks.
     MUMBAI_NETWORK_ID = "80001";
