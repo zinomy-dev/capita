@@ -2,7 +2,7 @@ import {ethers} from "ethers";
 import contractAddress from "../constant/contracts/contract-address.json";
 import TokenArtifact from "../constant/contracts/Token.json";
 import CapitaArtifact from "../constant/contracts/Capita.json";
-
+import {store} from '../store/index'
 class Ethereum {
     // to use when deploying to other networks.
     MUMBAI_NETWORK_ID = "80001";
@@ -12,13 +12,16 @@ class Ethereum {
     get isValidNetWork() {
         return window.ethereum.networkVersion === this.MUMBAI_NETWORK_ID
     }
-
+    get state() {
+        const state = store.getState();
+        return state.wallet;
+    }
     async connect() {
         const [selectedAddress] = await window.ethereum.request({
             method: "eth_requestAccounts",
         });
         window.ethereum.on('accountsChanged', this.accountChanged.bind(this));
-        this._initialize(selectedAddress);
+        await this._initialize(selectedAddress);
         return selectedAddress;
     }
 
@@ -26,8 +29,9 @@ class Ethereum {
      * @private
      *
      * */
-    _initialize(address) {
+    async _initialize(address) {
         // We first initialize ethers by creating a provider using window.ethereum
+
         this._provider = new ethers.providers.Web3Provider(window.ethereum);
 
         this._token = new ethers.Contract(
@@ -41,10 +45,13 @@ class Ethereum {
             CapitaArtifact.abi,
             this._provider.getSigner(0)
         );
+        this.state['address'] = address;
+        console.log(this.state);
+        await this.fetchProjects();
         return address;
     }
 
-    accountChanged(address) {
+    accountChanged([address]) {
         this._initialize(address)
     }
 
@@ -55,32 +62,41 @@ class Ethereum {
         totalSupply,
         nameOfToken,
         symbolOfToken) {
-        const tx = await this._capita.createProject(
-            url,
+        console.log(url,
             numOfCollab,
             address,
             totalSupply,
             nameOfToken,
-            symbolOfToken
-        );
-
-        // this.setState({ txBeingSent: tx.hash });
-
-        const receipt = await tx.wait();
-
-        if (receipt.status === 0) {
-            throw new Error("Transaction failed");
-        }
-        await this._showProjects();
+            symbolOfToken)
+        // const tx = await this._capita.createProject(
+        //     url,
+        //     numOfCollab,
+        //     address,
+        //     totalSupply,
+        //     nameOfToken,
+        //     symbolOfToken
+        // );
+        //
+        // // this.setState({ txBeingSent: tx.hash });
+        //
+        // const receipt = await tx.wait();
+        //
+        // if (receipt.status === 0) {
+        //     throw new Error("Transaction failed");
+        // }
+        // await this.fetchProjects();
     }
 
     async fetchProjects() {
+
         const projects = [];
         const getProjectCount = await this._capita.numOfProjects();
         for (let i = 1; i <= getProjectCount; i++) {
             projects.push(await this._capita.projects(i));
             // this.setState({ projectList: getProject });
         }
+        this.state['projects'] = projects;
+        console.log(this.state);
         return projects;
     }
 
@@ -88,13 +104,16 @@ class Ethereum {
         const owners = await this._capita.getSecOwners(index);
         console.log(owners)
         // this.setState({ getSecOwners: getSecOwners });
+        this.state['owners'] = owners;
         return owners;
     }
 
     async getTokenData() {
         const name = await this._token.name();
         const symbol = await this._token.symbol();
+        this.state['tokenData'] = {name, symbol};
         return {name, symbol};
+
         // this.setState({ tokenData: { name, symbol } });
     }
 

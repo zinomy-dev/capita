@@ -90,11 +90,8 @@ export const setRepoName = (repoName) => {
 }
 
 export const connectToWallet = () => {
-
-
     return async dispatch => {
         if (typeof window.ethereum === 'undefined') {
-            console.log(typeof window.ethereum === 'undefined')
             dispatch( {
                 type: dashboard.ethereumNotAvail,
                 status: true
@@ -107,11 +104,28 @@ export const connectToWallet = () => {
         }
 
     }
-
 }
 export const loadEthereumAddress = (payload) => {
     return {
         type: dashboard.ethereumAddress,
         ethereumAddress: payload.data
+    }
+}
+
+export const createContract = (payload) => {
+    return async dispatch => {
+        if (typeof window.ethereum === 'undefined') {
+            dispatch( {
+                type: dashboard.ethereumNotAvail,
+                status: true
+            });
+        }else {
+            console.log(payload)
+            const selectedAddress = await Ethereum.createContract({...payload});
+            // dispatch(loadEthereumAddress({
+            //     data: selectedAddress
+            // }))
+        }
+
     }
 }

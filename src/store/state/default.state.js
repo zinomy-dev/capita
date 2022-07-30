@@ -1,4 +1,7 @@
 export const defaultState = {
-loggedIn: false,
-orgs:[]
+    loggedIn: false,
+    orgs: [],
+    wallet: {
+
+    }
 }
