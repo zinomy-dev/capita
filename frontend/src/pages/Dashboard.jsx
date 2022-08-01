@@ -11,6 +11,7 @@ import Members from "../components/Members";
 import Repos from '../components/Repos'
 import ContractDetails from "../components/Contract-details";
 import NoWalletDetected from '../components/Dashboard/no-wallet-detected'
+import ContractCard from "../components/Dashboard/Contract-card";
 // store actoins
 import {connectToWallet} from '../store/action/dashboard';
 
@@ -42,7 +43,7 @@ class Dashboard extends Component {
                             <Repos/>
                         </div>
                         <ContractDetails></ContractDetails>
-                        {/*<ContractCard></ContractCard>*/}
+                        <ContractCard></ContractCard>
                     </article>
             }
 

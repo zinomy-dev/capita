@@ -15,7 +15,7 @@ class Repos extends PureComponent {
                 <ul className="repos-list-wrap">
                     {repos.map((item, i) => (
                         <li key={i} onClick={(e) => {
-                            this.props.setRepoName(item['name']);
+                            this.props.setRepoName(item['name'], item['html_url']);
                         }}>
                             {/* <img src={item.avatar_url} alt="" className="img" /> */}
                             <p >{item['name'].toLocaleUpperCase()}</p>
@@ -35,7 +35,7 @@ const mapStateToProps = state => ({
     ...state
   });
   const mapDispatchToProps = dispatch => ({
-    setRepoName: (repoName)=> dispatch(setRepoName(repoName))
+    setRepoName: (repoName, uri)=> dispatch(setRepoName(repoName, uri))
   });
   
 export default connect(mapStateToProps, mapDispatchToProps)(Repos);

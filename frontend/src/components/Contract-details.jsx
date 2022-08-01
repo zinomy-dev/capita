@@ -41,8 +41,8 @@ class ContractDetails extends Component {
             }
             _payload[name] = value;
         }
-        // console.log(this.consent.current.checked);
-        console.log(_payload);
+        _payload.numOfCollab = _payload.members.length;
+        _payload.address = _payload.members.map((member) => member.value);
         this.props.createContract(_payload);
     }
 
@@ -65,16 +65,16 @@ class ContractDetails extends Component {
                         <div className="contract-field-wrap">
                             <h4>Token Name &amp; Symbol</h4>
                             <div className="text-input-wrap token-field">
-                                <input type="text" className="text-input-field" onKeyUp={this.getTokenName.bind(this)}
+                                <input type="text" name="nameOfToken" className="text-input-field" onKeyUp={this.getTokenName.bind(this)}
                                        ref={this.tokenInput}/>
-                                <input type="hidden" name="tokenName" ref={this.tokenNameHidden}/>
+                                <input type="hidden" name="symbolOfToken" ref={this.tokenNameHidden}/>
                                 <div className="token-symbol-block" ref={this.tokenName}>SCH</div>
                             </div>
                         </div>
                         <div className="contract-field-wrap">
                             <h4>Tokens to be minted</h4>
                             <div className="text-input-wrap">
-                                <input type="text" className="text-input-field" name="minted"/>
+                                <input type="text" className="text-input-field" name="totalSupply"/>
                             </div>
                         </div>
                     </div>
@@ -83,6 +83,7 @@ class ContractDetails extends Component {
                             <h4>Repository selected</h4>
                             <div className="text-input-wrap">
                                 <input type="text" className="text-input-field" value={this.props.repoName} disabled/>
+                                <input type="text" className="text-input-field" value={this.props.repoUri} hidden='true' name='repoUri'/>
                             </div>
                         </div>
                         <div className="contract-field-wrap set-address-wrap">

@@ -82,10 +82,11 @@ export const loadReposData = (payload) => {
         membersList: payload.membersList
     }
 }
-export const setRepoName = (repoName) => {
+export const setRepoName = (repoName, uri) => {
     return {
         type: "setRepoName",
-        repoName: repoName
+        repoName: repoName,
+        uri: uri
     }
 }
 
@@ -120,8 +121,8 @@ export const createContract = (payload) => {
                 status: true
             });
         }else {
-            console.log(payload)
-            const selectedAddress = await Ethereum.createContract({...payload});
+
+            const selectedAddress = await Ethereum.createContract(payload);
             // dispatch(loadEthereumAddress({
             //     data: selectedAddress
             // }))

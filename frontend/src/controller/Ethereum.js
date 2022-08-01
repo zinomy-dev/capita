@@ -2,8 +2,7 @@ import {ethers} from "ethers";
 import contractAddress from "../constant/contracts/contract-address.json";
 import TokenArtifact from "../constant/contracts/Token.json";
 import CapitaArtifact from "../constant/contracts/Capita.json";
-import {store} from '../store/index'
-console.log(store)
+import {store} from '../store/index';
 class Ethereum {
     // to use when deploying to other networks.
     MUMBAI_NETWORK_ID = "80001";
@@ -57,35 +56,24 @@ class Ethereum {
     }
 
     async createContract(
-        url,
-        numOfCollab,
-        address,
-        totalSupply,
-        nameOfToken,
-        symbolOfToken) {
-        console.log(url,
-            numOfCollab,
-            address,
-            totalSupply,
-            nameOfToken,
-            symbolOfToken)
-        // const tx = await this._capita.createProject(
-        //     url,
-        //     numOfCollab,
-        //     address,
-        //     totalSupply,
-        //     nameOfToken,
-        //     symbolOfToken
-        // );
-        //
-        // // this.setState({ txBeingSent: tx.hash });
-        //
-        // const receipt = await tx.wait();
-        //
-        // if (receipt.status === 0) {
-        //     throw new Error("Transaction failed");
-        // }
-        // await this.fetchProjects();
+        _payload) {
+        const tx = await this._capita.createProject(
+            _payload.repoUri,
+            _payload.numOfCollab,
+            _payload.address,
+            _payload.totalSupply,
+            _payload.nameOfToken,
+            _payload.symbolOfToken
+        );
+
+        // this.setState({ txBeingSent: tx.hash });
+
+        const receipt = await tx.wait();
+
+        if (receipt.status === 0) {
+            throw new Error("Transaction failed");
+        }
+        await this.fetchProjects();
     }
 
     async fetchProjects() {
