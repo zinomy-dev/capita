@@ -2,9 +2,8 @@ import cookieSession from "cookie-session";
 import express  from "express";
 import cors from "cors";
 import './passport.js';
-import passport from "passport";
 import authRoute from "./routes/auth.js";
-
+import passport from "passport";
 // constant imports
 import {PORT, CLIENT_URL} from './constant/env.config.js'
 const app = express();

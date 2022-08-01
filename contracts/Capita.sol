@@ -18,7 +18,7 @@ contract Capita {
     mapping (uint => Project) public projects;
     uint public numOfProjects;
 
-    function createProject(string memory _projectURL, uint _numOfsecOwners, address[] memory _secOwners, uint _totalSupply, string memory _tokenName, string memory _symbol) public {
+    function createProject(string memory _projectURL, uint _numOfsecOwners, address[] memory _secOwners, uint _totalSupply, string memory _tokenName, string memory _symbol) public returns (uint projectID){
         numOfProjects++;
         projects[numOfProjects].projectURL = _projectURL;
         projects[numOfProjects].numOfsecOwners = _numOfsecOwners;
@@ -26,6 +26,7 @@ contract Capita {
         projects[numOfProjects].owner = payable(msg.sender);
         TokenCreator token = new TokenCreator(_totalSupply, _tokenName, _symbol);
         projects[numOfProjects].erc20 = address(token);
+        return numOfProjects;
     }
 
     function getSecOwners(uint projectID) public view returns(address[] memory){

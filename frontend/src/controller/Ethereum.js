@@ -65,11 +65,13 @@ class Ethereum {
             _payload.nameOfToken,
             _payload.symbolOfToken
         );
+// API
+
 
         // this.setState({ txBeingSent: tx.hash });
 
         const receipt = await tx.wait();
-
+        console.log(receipt)
         if (receipt.status === 0) {
             throw new Error("Transaction failed");
         }
@@ -91,7 +93,6 @@ class Ethereum {
 
     async getOwners(index) {
         const owners = await this._capita.getSecOwners(index);
-        console.log(owners)
         // this.setState({ getSecOwners: getSecOwners });
         this.state['owners'] = owners;
         return owners;
