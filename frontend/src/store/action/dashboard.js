@@ -1,8 +1,8 @@
 import APIHandler from "../../service/API_Handler";
 import Ethereum from "../../controller/Ethereum";
-import {API_URL} from "../../constant";
+import { API_URL } from "../../constant";
 import CONSTANTS from '../constants/actions.js';
-import {encode as base64_encode} from 'base-64';
+import { encode as base64_encode } from 'base-64';
 const dashboard = CONSTANTS.dashboard;
 export const fetchOrgData = () => {
     return async dispatch => {
@@ -41,7 +41,13 @@ export const fetchContract = (email) => {
             }
         });
         if (await successAPI.exec()) {
-            dispatch(loadContract(successAPI.responseObject));
+            if (Object.keys(successAPI.responseObject).length === 0) {
+                dispatch(fetchOrgData())
+                return 0;
+            } else {
+                dispatch(loadContract(successAPI.responseObject));
+            }
+
         }
     }
 }
@@ -119,11 +125,11 @@ export const setRepoName = (repoName, uri) => {
 export const connectToWallet = () => {
     return async dispatch => {
         if (typeof window.ethereum === 'undefined') {
-            dispatch( {
+            dispatch({
                 type: dashboard.ethereumNotAvail,
                 status: true
             });
-        }else {
+        } else {
             const selectedAddress = await Ethereum.connect();
             dispatch(loadEthereumAddress({
                 data: selectedAddress
@@ -149,16 +155,18 @@ export const contractCreated = (payload) => {
 export const createContract = (payload) => {
     return async dispatch => {
         if (typeof window.ethereum === 'undefined') {
-            dispatch( {
+            dispatch({
                 type: dashboard.ethereumNotAvail,
                 status: true
             });
-        }else {
+        } else {
 
             const contract = await Ethereum.createContract(payload);
             dispatch(contractCreated({
                 data: contract
             }));
+
+
         }
 
     }

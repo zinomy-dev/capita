@@ -116,6 +116,10 @@ router.get('/contract/:email', async (req, res) => {
             childQuery: []
         }
     });
+    if(ORM.DataContainer.entities.length === 0){
+        res.send({});
+        return 0;
+    };
     const contract = ORM.DataContainer._entityCollection.get('contract')[0];
     res.send(contract.toJSON());
 });

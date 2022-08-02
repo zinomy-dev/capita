@@ -26,11 +26,9 @@ class Dashboard extends Component {
         const divStyle = {
             color: 'blue',
         };
-
         if(!this.props.showDashboard) {
             return Loader;
         }
-
         return <>
             <aside className="aside sidenav-wrap">
                 <ul>

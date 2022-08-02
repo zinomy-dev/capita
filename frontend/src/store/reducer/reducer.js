@@ -11,6 +11,7 @@ const reducer = (state = defaultState, action) => {
             break;
         case dashboard.loadOrgData:
             newState.organizations = action.orgPayload;
+            newState.showDashboard = true;
             break;
         case dashboard.loadMembersData:
             newState.members = action.membersPayload;
