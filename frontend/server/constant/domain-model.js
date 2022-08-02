@@ -126,6 +126,17 @@ export default {
                         columnName: 'orgName'
                     }
                 ]
+            },
+            created: {
+                key: false,
+                path: 'created',
+                dataType: 'date',
+                table: [
+                    {
+                        tableId: 'contract',
+                        columnName: 'created'
+                    }
+                ]
             }
         }
     }
