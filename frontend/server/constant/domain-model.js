@@ -130,7 +130,7 @@ export default {
             created: {
                 key: false,
                 path: 'created',
-                dataType: 'date',
+                dataType: 'string',
                 table: [
                     {
                         tableId: 'contract',

@@ -6346,7 +6346,7 @@
     "assert-plus" "^1.0.0"
 
 "data-model@github:Arinrockcy/data-model":
-  "resolved" "git+ssh://git@github.com/Arinrockcy/data-model.git#fda42dfeef37020cc72ebbd1bc23c4660f07e419"
+  "resolved" "git+ssh://git@github.com/Arinrockcy/data-model.git#a0d3131e8952a9163127e3f21e09c73c4a795232"
   "version" "1.0.0"
   dependencies:
     "acorn" "^8.7.1"
