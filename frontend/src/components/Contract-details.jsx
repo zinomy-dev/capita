@@ -31,13 +31,12 @@ class ContractDetails extends Component {
     createContract(e){
         e.preventDefault()
         const _payload = {members: []};
-        for (const {name, value, id, ...event} of e.target.querySelectorAll("input[name]")) {
+        for (const {name, value, id, max} of e.target.querySelectorAll("input[name]")) {
             if (name === 'members[]') {
-                console.log(event);
-                console.log(event.getAttribute('data-img'))
                 _payload.members.push({
                     name: id,
-                    value: value
+                    value: value,
+                    avatarUrl: max
                 });
                 continue;
             }
@@ -49,7 +48,7 @@ class ContractDetails extends Component {
         _payload.orgName = this.props.organizationName;
         _payload.email = this.props.user.emails[0].value;
         _payload.totalSupply = parseInt(_payload.totalSupply);
-        // this.props.createContract(_payload);
+        this.props.createContract(_payload);
     }
 
     render() {
@@ -102,7 +101,7 @@ class ContractDetails extends Component {
                                 members.map((item, i) => (
                                     <div className="text-input-wrap">
                                         <label>{item['login']}</label>
-                                        <input type="text" className="text-input-field" id={item['login']} name="members[]" data-img={item['avatar_url']} />
+                                        <input type="text" className="text-input-field" id={item['login']} name="members[]" max={item['avatar_url']} />
                                     </div>
                                 ))
                             }

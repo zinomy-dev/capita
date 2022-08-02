@@ -20,10 +20,10 @@ class ContractCard extends Component {
                     </div>
                 </div>
                 <div className="contract-status-date">
-                    <div className="contract-status">Active</div>
+                    <div className="contract-status">{contract.status}</div>
                     <div className="contract-created-at-wrap">
                         <span className="date-label">Created at</span>
-                        <span className="date-info">12 July 2022, 9:58 PM (IST)</span>
+                        <span className="date-info">{contract.created}</span>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ class ContractCard extends Component {
                            contract.members.map((item,i)=> (
                                 <li>
                                     <div className="github-avtar">
-                                        <img src={item.avatar_url} alt={item['name']} />
+                                        <img src={item.avatarUrl} alt={item['name']} />
                                     </div>
                                     <p>{item['name']}</p>
                                     <div>

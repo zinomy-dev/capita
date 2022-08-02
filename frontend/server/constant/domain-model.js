@@ -137,6 +137,17 @@ export default {
                         columnName: 'created'
                     }
                 ]
+            },
+            status: {
+                key: false,
+                path: 'status',
+                dataType: 'string',
+                table: [
+                    {
+                        tableId: 'contract',
+                        columnName: 'status'
+                    }
+                ]
             }
         }
     }

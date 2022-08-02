@@ -93,6 +93,7 @@ router.post('/contracts', async (req, res) => {
     const _payload = req.body;
     _payload['created'] = new Date().toString();
     _payload['action'] = 'I';
+    _payload['status'] = 'Active';
     ORM.DataContainer.addData('contract', _payload);
     await ORM.DataContainer.write();
    const  contract = ORM.DataContainer._entityCollection.get('contract')[0];
