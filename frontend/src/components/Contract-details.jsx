@@ -43,14 +43,22 @@ class ContractDetails extends Component {
         }
         _payload.numOfCollab = _payload.members.length;
         _payload.address = _payload.members.map((member) => member.value);
+        _payload.repoName = this.props.repoName;
+        _payload.orgName = this.props.organizationName;
+        _payload.email = this.props.user.emails[0].value;
+        _payload.totalSupply = parseInt(_payload.totalSupply);
         this.props.createContract(_payload);
     }
 
     render() {
         const {
-            membersList
+            membersList,
+            showContract
         } = this.props;
         const members = membersList ? [...membersList] : [];
+        if(!showContract) {
+            return  <></>;
+        }
         return <div className="contract-details-container">
             <h2>Capita Contract Details</h2>
             <form onSubmit={this.createContract.bind(this)}>

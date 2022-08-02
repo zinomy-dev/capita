@@ -17,7 +17,7 @@ export default class APIHandler {
      * @private
      */
     _validate(_payload) {
-        if (typeof _payload !== 'object' && _payload instanceof Date && _payload === null) {
+        if (typeof _payload !== 'object' && _payload instanceof Date && !_payload) {
             throw new Error(`${typeof _payload} is not valid payload`);
         }
         for (const key in _payload) {
@@ -32,11 +32,16 @@ export default class APIHandler {
     }
 
     async exec() {
-        const response = await fetch(this.url, {
+        const config = {
             method: this.method,
             credentials: "include",
             headers: this.headers,
-        });
+        };
+        console.log(this.body)
+        if (this.method !== 'GET') {
+            config['body'] = this.body;
+        }
+        const response = await fetch(this.url, config);
         if (response.status >= 300) {
             throw new Error(response.statusText);
         }

@@ -3,6 +3,8 @@ import contractAddress from "../constant/contracts/contract-address.json";
 import TokenArtifact from "../constant/contracts/Token.json";
 import CapitaArtifact from "../constant/contracts/Capita.json";
 import {store} from '../store/index';
+import {API_URL} from "../constant";
+import APIHandler from "../service/API_Handler";
 class Ethereum {
     // to use when deploying to other networks.
     MUMBAI_NETWORK_ID = "80001";
@@ -55,8 +57,9 @@ class Ethereum {
         this._initialize(address)
     }
 
-    async createContract(
-        _payload) {
+    async createContract(_payload) {
+        _payload.projectId = 7;
+        return await this._insertProjectData(_payload);
         const tx = await this._capita.createProject(
             _payload.repoUri,
             _payload.numOfCollab,
@@ -65,19 +68,32 @@ class Ethereum {
             _payload.nameOfToken,
             _payload.symbolOfToken
         );
-// API
-
-
         // this.setState({ txBeingSent: tx.hash });
 
         const receipt = await tx.wait();
-        console.log(receipt)
+        console.log(receipt);
+        console.log(tx);
         if (receipt.status === 0) {
             throw new Error("Transaction failed");
         }
-        await this.fetchProjects();
+        const projects = await this.fetchProjects();
+        _payload.projectId = projects.length - 1;
+        return await this._insertProjectData(_payload);
     }
 
+    async _insertProjectData(_payload) {
+        const successAPI = new APIHandler({
+            url: `${API_URL}/auth/contracts`,
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true,
+            },
+            body: JSON.stringify(_payload)
+        });
+        return await successAPI.exec()
+    }
     async fetchProjects() {
 
         const projects = [];
@@ -107,7 +123,7 @@ class Ethereum {
         // this.setState({ tokenData: { name, symbol } });
     }
 
-    async updateBalance(selectedAddress) {
+    async getBalance(selectedAddress) {
         return await this._token.balanceOf(selectedAddress);
 
         //this.setState({ balance });

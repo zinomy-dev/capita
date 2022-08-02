@@ -1548,7 +1548,7 @@
   "version" "2.0.0"
 
 "data-model@github:Arinrockcy/data-model":
-  "resolved" "git+ssh://git@github.com/Arinrockcy/data-model.git#b5edca87fe6f6b169d5d5467a4c193f00c1c8fb4"
+  "resolved" "git+ssh://git@github.com/Arinrockcy/data-model.git#037bb467620974effde796bbea7e79ae027415b3"
   "version" "1.0.0"
   dependencies:
     "acorn" "^8.7.1"

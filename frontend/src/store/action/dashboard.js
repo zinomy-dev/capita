@@ -113,6 +113,13 @@ export const loadEthereumAddress = (payload) => {
     }
 }
 
+export const contractCreated = (payload) => {
+    return {
+        type: dashboard.contractCreated,
+        recentContract: payload.data
+    }
+}
+
 export const createContract = (payload) => {
     return async dispatch => {
         if (typeof window.ethereum === 'undefined') {
@@ -122,10 +129,10 @@ export const createContract = (payload) => {
             });
         }else {
 
-            const selectedAddress = await Ethereum.createContract(payload);
-            // dispatch(loadEthereumAddress({
-            //     data: selectedAddress
-            // }))
+            const contract = await Ethereum.createContract(payload);
+            dispatch(contractCreated({
+                data: contract
+            }));
         }
 
     }

@@ -33,6 +33,8 @@ class Dashboard extends Component {
             {
                 this.props.ethereumNotAvail ? <NoWalletDetected/> :
                     <article className="main">
+                        {!this.props.showContract ? '' :
+                        <>
                         <div className="intro-heading-wrap">
                             <h2 className="intro-line1">Let’s get you started...</h2>
                             <h2 className="intro-line2">Select your Github Organisation for Capita Contracts...</h2>
@@ -42,6 +44,7 @@ class Dashboard extends Component {
                             <Members/>
                             <Repos/>
                         </div>
+                        </>}
                         <ContractDetails></ContractDetails>
                         <ContractCard></ContractCard>
                     </article>

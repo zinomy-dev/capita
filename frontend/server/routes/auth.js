@@ -2,6 +2,14 @@ import {Router} from "express";
 import passport from "passport";
 import {Octokit} from 'octokit';
 import {CLIENT_URL} from '../constant/env.config.js'
+import DataModel from "data-model";
+import domainModel from '../constant/domain-model.js';
+
+const dbConfig = `mongodb+srv://zinomyDev:Cosmic321!@clustercapita.slmm8l0.mongodb.net/data_model?retryWrites=true&w=majority`;
+const ORM = new DataModel({
+    "domainModel": domainModel,
+    "dbConfig": dbConfig
+});
 // const CLIENT_URL = "http://ec2-54-165-74-239.compute-1.amazonaws.com";
 const router = Router();
 router.get("/login/success", (req, res) => {
@@ -80,6 +88,34 @@ router.get('/github/users/:user/repos', async (req, res) => {
     const result = await octokit.request(`GET /orgs/${req.params.user}/repos`, {})
     res.send(result.data)
 });
-//GET /users/${req.params.user}/repos
 
+router.post('/contracts', async (req, res) => {
+    const _payload = req.body;
+    _payload['created'] = new Date().toString();
+    _payload['action'] = 'I';
+    ORM.DataContainer.addData('contract', _payload);
+    await ORM.DataContainer.write();
+   const  contract = ORM.DataContainer._entityCollection.get('contract')[0];
+   res.send(contract.toJSON());
+
+});
+
+router.get('/contract/:projectId', async (req, res) => {
+    await ORM.DataContainer.read({
+        query: {
+            filter: [
+                {
+                    fieldName: 'projectId',
+                    comparator: '=',
+                    value: req.params.projectId
+                }
+            ],
+            domain: 'contract',
+            fields: Object.keys(domainModel.contract.fields),
+            childQuery: []
+        }
+    });
+    const contract = ORM.DataContainer._entityCollection.get('contract')[0];
+    res.send(contract.toJSON);
+});
 export default router

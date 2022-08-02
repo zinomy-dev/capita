@@ -30,6 +30,10 @@ const reducer = (state = defaultState, action) => {
         case dashboard.ethereumAddress:
             newState.ethereumAddress = action.ethereumAddress;
             break;
+        case dashboard.contractCreated:
+            newState.recentContract = action.recentContract;
+            newState.showContract = false;
+            break;
     }
     return newState;
 }

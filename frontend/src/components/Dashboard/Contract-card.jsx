@@ -5,9 +5,13 @@ class ContractCard extends Component {
         const {
             membersList,
             organizationName,
-            repoName
+            repoName,
+            recentContract
         } = this.props;
         const members = membersList ? [...membersList] : [];
+        if(!recentContract) {
+            return <></>;
+        }
         return <div className="contract-card-container">
         <div className="contract-details-wrap">
             <div className="contract-heading-bar-holder">

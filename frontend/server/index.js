@@ -7,7 +7,8 @@ import passport from "passport";
 // constant imports
 import {PORT, CLIENT_URL} from './constant/env.config.js'
 const app = express();
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cookieSession({ name: "session", keys: ["capita"], maxAge: 24 * 60 * 60 * 100 })
 );

@@ -2,12 +2,13 @@ import  { Strategy as GoogleStrategy} from "passport-google-oauth20";
 import { Strategy as GithubStrategy } from "passport-github2";
 import { Strategy as FacebookStrategy }  from "passport-facebook";
 import passport from "passport";
+import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from './constant/env.config.js'
 
 const GOOGLE_CLIENT_ID =
   "your id";
 const GOOGLE_CLIENT_SECRET = "your id";
 
-import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from './constant/env.config.js'
+
 
 const FACEBOOK_APP_ID = "your id";
 const FACEBOOK_APP_SECRET = "your id";

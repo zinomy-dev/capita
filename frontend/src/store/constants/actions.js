@@ -1,3 +1,5 @@
+import {contractCreated} from "../action/dashboard";
+
 const actionsConstant = {
 
     loginActions: {
@@ -11,7 +13,8 @@ const actionsConstant = {
         loadReposData: 'loadReposData',
         setRepoName: 'setRepoName',
         ethereumNotAvail: 'ethereumNotAvail',
-        ethereumAddress: 'ethereumAddress'
+        ethereumAddress: 'ethereumAddress',
+        contractCreated: 'contractCreated',
     }
 };
 
