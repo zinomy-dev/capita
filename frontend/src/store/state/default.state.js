@@ -3,5 +3,6 @@ export const defaultState = {
     orgs: [],
     wallet: {
     },
-    showContract: true
+    showContract: true,
+    showDashboard: false,
 }

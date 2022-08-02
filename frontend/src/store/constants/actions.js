@@ -15,6 +15,7 @@ const actionsConstant = {
         ethereumNotAvail: 'ethereumNotAvail',
         ethereumAddress: 'ethereumAddress',
         contractCreated: 'contractCreated',
+        loadContract : 'loadContract'
     }
 };
 

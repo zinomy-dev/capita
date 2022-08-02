@@ -100,14 +100,15 @@ router.post('/contracts', async (req, res) => {
 
 });
 
-router.get('/contract/:projectId', async (req, res) => {
+router.get('/contract/:email', async (req, res) => {
+    // const email = Buffer.from(req.params.email, 'base64');
     await ORM.DataContainer.read({
         query: {
             filter: [
                 {
-                    fieldName: 'projectId',
+                    fieldName: 'email',
                     comparator: '=',
-                    value: req.params.projectId
+                    value: req.params.email
                 }
             ],
             domain: 'contract',
@@ -116,6 +117,6 @@ router.get('/contract/:projectId', async (req, res) => {
         }
     });
     const contract = ORM.DataContainer._entityCollection.get('contract')[0];
-    res.send(contract.toJSON);
+    res.send(contract.toJSON());
 });
 export default router

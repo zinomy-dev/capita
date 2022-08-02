@@ -2,6 +2,7 @@ import APIHandler from "../../service/API_Handler";
 import Ethereum from "../../controller/Ethereum";
 import {API_URL} from "../../constant";
 import CONSTANTS from '../constants/actions.js';
+import {encode as base64_encode} from 'base-64';
 const dashboard = CONSTANTS.dashboard;
 export const fetchOrgData = () => {
     return async dispatch => {
@@ -16,6 +17,31 @@ export const fetchOrgData = () => {
         });
         if (await successAPI.exec()) {
             dispatch(loadOrgData(successAPI.responseObject));
+        }
+    }
+}
+
+export const loadContract = (payload) => {
+    return {
+        type: "loadContract",
+        contractPayload: payload
+    }
+}
+
+export const fetchContract = (email) => {
+    // email = base64_encode(email);
+    return async dispatch => {
+        const successAPI = new APIHandler({
+            url: `${API_URL}/auth/contract/${email}`,
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true,
+            }
+        });
+        if (await successAPI.exec()) {
+            dispatch(loadContract(successAPI.responseObject));
         }
     }
 }

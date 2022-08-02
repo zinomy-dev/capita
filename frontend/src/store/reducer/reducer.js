@@ -34,6 +34,11 @@ const reducer = (state = defaultState, action) => {
             newState.recentContract = action.recentContract;
             newState.showContract = false;
             break;
+        case dashboard.loadContract:
+            newState.contractPayload = action.contractPayload;
+            newState.showDashboard = true;
+            newState.showContract = false;
+            break;
     }
     return newState;
 }

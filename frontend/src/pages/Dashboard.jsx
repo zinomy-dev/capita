@@ -12,15 +12,25 @@ import Repos from '../components/Repos'
 import ContractDetails from "../components/Contract-details";
 import NoWalletDetected from '../components/Dashboard/no-wallet-detected'
 import ContractCard from "../components/Dashboard/Contract-card";
+import Loader from "../components/Spinner";
 // store actoins
-import {connectToWallet} from '../store/action/dashboard';
+import {connectToWallet, fetchContract} from '../store/action/dashboard';
 
 class Dashboard extends Component {
+    
+    componentDidMount() {
+        this.props.fetchContract(this.props.user.emails[0].value);
+    }
 
     render() {
         const divStyle = {
             color: 'blue',
         };
+
+        if(!this.props.showDashboard) {
+            return Loader;
+        }
+
         return <>
             <aside className="aside sidenav-wrap">
                 <ul>
@@ -58,7 +68,8 @@ const mapStateToProps = state => ({
     ...state
 });
 const mapDispatchToProps = dispatch => ({
-    connectToWallet: () => dispatch(connectToWallet())
+    connectToWallet: () => dispatch(connectToWallet()),
+    fetchContract: (email) => dispatch(fetchContract(email))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -3,22 +3,20 @@ import { connect } from "react-redux";
 class ContractCard extends Component {
     render() {
         const {
-            membersList,
-            organizationName,
-            repoName,
-            recentContract
+            recentContract, 
+            contractPayload
         } = this.props;
-        const members = membersList ? [...membersList] : [];
-        if(!recentContract) {
+        if(!recentContract && !contractPayload) {
             return <></>;
         }
+        const contract = recentContract ? recentContract : contractPayload;
         return <div className="contract-card-container">
         <div className="contract-details-wrap">
             <div className="contract-heading-bar-holder">
                 <div className="contract-name-token">
                     <h2>Chained-Simplex</h2>
                     <div className="token-info">
-                        simchain <div className="token-symbol-block">SCH</div>
+                    {contract.nameOfToken} <div className="token-symbol-block">{contract.symbolOfToken}</div>
                     </div>
                 </div>
                 <div className="contract-status-date">
@@ -32,11 +30,11 @@ class ContractCard extends Component {
             <div className="contract-github-info-wrap">
                 <div className="org-data block-data-line">
                     <div className="block-label">Organisation</div>
-                    <div className="block-value">{organizationName}</div>
+                    <div className="block-value">{contract.orgName}</div>
                 </div>
                 <div className="repo-data block-data-line">
                     <div className="block-label">Repository</div>
-                    <div className="block-value">{repoName}</div>
+                    <div className="block-value">{contract.repoName}</div>
                 </div>
             </div>
             <div className="contract-members-info-holder">
@@ -53,14 +51,14 @@ class ContractCard extends Component {
                 <div className="contract-members-list">
                     <ul>
                         {
-                            members.map((item,i)=> (
+                           contract.members.map((item,i)=> (
                                 <li>
                                     <div className="github-avtar">
-                                        <img src={item.avatar_url} alt={item['login']} />
+                                        <img src={item.avatar_url} alt={item['name']} />
                                     </div>
-                                    <p>{item['login']}</p>
+                                    <p>{item['name']}</p>
                                     <div>
-                                        <input type="text" id={item['login'] + "_" + i} />
+                                        <input type="text" id={item['name'] + "_" + i} />
                                     </div>
                                 </li>
                             ))
