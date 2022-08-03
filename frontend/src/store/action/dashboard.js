@@ -146,6 +146,7 @@ export const loadEthereumAddress = (payload) => {
 }
 
 export const contractCreated = (payload) => {
+    console.log(payload)
     return {
         type: dashboard.contractCreated,
         recentContract: payload.data

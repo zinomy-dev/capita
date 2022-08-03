@@ -92,7 +92,8 @@ class Ethereum {
             },
             body: JSON.stringify(_payload)
         });
-        return await successAPI.exec()
+        await successAPI.exec();
+        return successAPI.responseObject;
     }
     async fetchProjects() {
 
