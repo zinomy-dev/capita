@@ -29,7 +29,6 @@ export const loadContract = (payload) => {
 }
 
 export const fetchContract = (email) => {
-    // email = base64_encode(email);
     return async dispatch => {
         const successAPI = new APIHandler({
             url: `${API_URL}/auth/contract/${email}`,
@@ -45,6 +44,7 @@ export const fetchContract = (email) => {
                 dispatch(fetchOrgData())
                 return 0;
             } else {
+
                 dispatch(loadContract(successAPI.responseObject));
             }
 

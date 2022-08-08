@@ -40,6 +40,8 @@ const reducer = (state = defaultState, action) => {
             newState.showDashboard = true;
             newState.showContract = false;
             break;
+        case dashboard.walletConnected:
+            break;
     }
     return newState;
 }

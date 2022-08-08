@@ -3,6 +3,7 @@ import passport from "passport";
 import {Octokit} from 'octokit';
 import {CLIENT_URL} from '../constant/env.config.js'
 import DataModel from "data-model";
+// import getKeys from 'data-model/src/util/get-keys';
 import domainModel from '../constant/domain-model.js';
 
 const dbConfig = `mongodb+srv://zinomyDev:Cosmic321!@clustercapita.slmm8l0.mongodb.net/data_model?retryWrites=true&w=majority`;
@@ -96,7 +97,7 @@ router.post('/contracts', async (req, res) => {
     _payload['status'] = 'Active';
     ORM.DataContainer.addData('contract', _payload);
     await ORM.DataContainer.write();
-   const  contract = ORM.DataContainer._entityCollection.get('contract')[0];
+   const  contract = ORM.DataContainer._entityCollection.get('contract', ORM.keys(_payload, domainModel.contract.metaData.keys.flat()))[0];
    res.send(contract.toJSON());
 
 });
@@ -121,7 +122,7 @@ router.get('/contract/:email', async (req, res) => {
         res.send({});
         return 0;
     };
-    const contract = ORM.DataContainer._entityCollection.get('contract')[0];
+    const contract = ORM.DataContainer._entityCollection.get('contract', ORM.keys({ email: req.params.email }, domainModel.contract.metaData.keys.flat()))[0];
     res.send(contract.toJSON());
 });
 export default router

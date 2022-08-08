@@ -2,8 +2,8 @@
 export default {
     contract: {
         metaData: {
-            primaryKeys: ['projectId'],
-            keys: [['projectId'], ['email']]
+            primaryKeys: ['email', 'projectId'],
+            keys: [['email'], ['projectId']]
         },
         fields: {
             insertedId: {

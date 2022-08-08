@@ -2,9 +2,12 @@ import {ethers} from "ethers";
 import contractAddress from "../constant/contracts/contract-address.json";
 import TokenArtifact from "../constant/contracts/Token.json";
 import CapitaArtifact from "../constant/contracts/Capita.json";
+import APIHandler from "../service/API_Handler";
 import {store} from '../store/index';
 import {API_URL} from "../constant";
-import APIHandler from "../service/API_Handler";
+import actionsConstant from '../store/constants/actions'
+const { dashboard } = actionsConstant;
+
 class Ethereum {
     // to use when deploying to other networks.
     MUMBAI_NETWORK_ID = "80001";
@@ -14,16 +17,20 @@ class Ethereum {
     get isValidNetWork() {
         return window.ethereum.networkVersion === this.MUMBAI_NETWORK_ID
     }
+
     get state() {
         const state = store.getState();
         return state.wallet;
     }
+
     async connect() {
         const [selectedAddress] = await window.ethereum.request({
             method: "eth_requestAccounts",
         });
         window.ethereum.on('accountsChanged', this.accountChanged.bind(this));
         await this._initialize(selectedAddress);
+        await this.getBalance(selectedAddress);
+        store.dispatch({type: dashboard.walletConnected});
         return selectedAddress;
     }
 
@@ -95,6 +102,7 @@ class Ethereum {
         await successAPI.exec();
         return successAPI.responseObject;
     }
+
     async fetchProjects() {
 
         const projects = [];
@@ -104,7 +112,6 @@ class Ethereum {
             // this.setState({ projectList: getProject });
         }
         this.state['projects'] = projects;
-        console.log(this.state);
         return projects;
     }
 
@@ -125,8 +132,8 @@ class Ethereum {
     }
 
     async getBalance(selectedAddress) {
-        return await this._token.balanceOf(selectedAddress);
-
+        const balance = await this._token.balanceOf(selectedAddress);
+        this.state['balance'] = balance;
         //this.setState({ balance });
     }
 
